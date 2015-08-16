@@ -1,4 +1,6 @@
 # Import resources
+from mpd import MPDClient
+
 from IRCCommands import *
 import random
 import pickle
@@ -14,6 +16,7 @@ points = pickle.load(open('points.p', 'r+'))
 fileN = 'banned.txt'
 filename = os.getcwd() + '\\Banned Users\\' + fileN
 dir_ = os.getcwd() + '\\Banned Users\\'
+client = MPDClient()
 
 # Command template #
 class ICommand(object):
