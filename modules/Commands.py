@@ -33,14 +33,14 @@ class Join(ICommand):
         return '!join'
     @staticmethod    
     def excuteCommand(con, channel, user, message, isMod, isSub):
-        if (isMod) or (user == 'rubbixcube'):
-            if (channel == '#mrbotto'): # Only works in bot's channel
-                if (('#' + user) == message[1]) or (user == 'rubbixcube'):
+        if (isMod) or (user == 'sn0ggle'):
+            if (channel == '#sn0gger'): # Only works in bot's channel
+                if (('#' + user) == message[1]) or (user == 'sn0ggle'):
                     if (len(message) > 1):
                         if (message[1][0] == '#'): 
                             send_message(con, channel, 'Now joining ' + message[1])
                             join_channel(con, message[1])
-                            send_message(con, message[1], 'Hey there! I\'m MrBotto, my owner is RubbixCube who takes good care of me! I can do a lot of things and work best with Nightbot & Moobot.')
+                            send_message(con, message[1], 'Hey there! I\'m sn0gger, my owner is sn0ggle who takes good care of me! I can do a lot of things and work best with Nightbot & Moobot.')
                         elif (message[1] == 'silent'): # No welcome message on join
                             if (message[2][0] == '#'):
                                 send_message(con, channel, 'Now joining ' + message[2])
@@ -89,7 +89,7 @@ class Who(ICommand):
         return '!who'
     @staticmethod
     def excuteCommand(con, channel, user, message, isMod, isSub):
-        send_message(con, channel, '/me is a bot created by RubbixCube and co developed with lclc98.')
+        send_message(con, channel, '/me is a fork of a bot created by RubbixCube and co developed with lclc98; sn0ggle has added functionality.')
 
 # Check whether the bot is in the channel
 class Here(ICommand):
@@ -116,7 +116,7 @@ class Cylons(ICommand):
         return '!cylon'
     @staticmethod
     def excuteCommand(con, channel, user, message, isMod, isSub):
-        send_message(con, channel, 'We are a version of Cylons, We assimilate together to purge all Kappa')
+        send_message(con, channel, 'We are a version of Cylons, we assimilate together to purge all Kappa')
 
 class Age(ICommand):
     @staticmethod
