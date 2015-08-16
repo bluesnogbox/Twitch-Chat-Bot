@@ -19,8 +19,6 @@ HOST = 'irc.twitch.tv'                          # Twitch IRC Network
 PORT = 6667                                     # Default IRC-Port
 CHAN = ['#sn0ggle']                              # Channelname = #{Nickname}
 NICK = 'sn0gger'                                # Twitch username
-PASS = 'oauth:'   # OAuth Key
-
 
 # Show info in the shell/terminal
 print('Connection Information:')

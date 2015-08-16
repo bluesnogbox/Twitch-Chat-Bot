@@ -1,6 +1,6 @@
 # Import resources
-from mpd import MPDClient
 
+from mpd import MPDClient
 from IRCCommands import *
 import random
 import pickle
@@ -17,7 +17,8 @@ fileN = 'banned.txt'
 filename = os.getcwd() + '\\Banned Users\\' + fileN
 dir_ = os.getcwd() + '\\Banned Users\\'
 client = MPDClient()
-
+client.timeout = 10
+client.idletimeout = None
 # Command template #
 class ICommand(object):
     def getCommand():
@@ -63,6 +64,21 @@ class Leave(ICommand):
             part_channel(con, channel)
 
 #------------------------------------------------------------------------------#
+
+# Custom test
+class MpdVersion(ICommand):
+    @staticmethod
+    def getCommand():
+        return '!mpdversion'
+    def executeCommand(con, channel, user, message, isMod, isSub):
+        client.connect("bluesnogbox.duckdns.org", 6600)
+        version = client.mpd_version
+        client.close()
+        client.disconnect()
+        send_message(con, channel, version)
+        part_channel(con, channel)
+
+
 
 ## Global Commands ##
 class Help(ICommand):
