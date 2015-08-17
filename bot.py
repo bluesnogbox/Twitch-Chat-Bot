@@ -19,6 +19,8 @@ HOST = 'irc.twitch.tv'                          # Twitch IRC Network
 PORT = 6667                                     # Default IRC-Port
 CHAN = ['#sn0ggle']                              # Channelname = #{Nickname}
 NICK = 'sn0gger'                                # Twitch username
+with open ("../oauth.txt", "r") as myfile:
+	        PASS=myfile.read().replace('\n', '')
 
 # Show info in the shell/terminal
 print('Connection Information:')
@@ -56,7 +58,7 @@ module_name = importlib.import_module('modules.Commands')
 options = ['Join','Leave','Help','Commands','Who','Here',
            'MrBotto','Cylons','Age','DCounter',
            'ComAdd','ComDel','ComEdit','Com','TwitchSlot',
-           'Roulette','PointsMOD','Check']
+           'Roulette','PointsMOD','Check','Mpdversion']
 
 # Check whether a command exists
 def parse_message(channel, user, msg):

@@ -66,18 +66,19 @@ class Leave(ICommand):
 #------------------------------------------------------------------------------#
 
 # Custom test
-class MpdVersion(ICommand):
+class Mpdversion(ICommand):
     @staticmethod
     def getCommand():
-        return '!mpdversion'
-    def executeCommand(con, channel, user, message, isMod, isSub):
-        client.connect("bluesnogbox.duckdns.org", 6600)
-        version = client.mpd_version
-        client.close()
-        client.disconnect()
-        send_message(con, channel, version)
-        part_channel(con, channel)
-
+        return '!version'
+    @staticmethod    
+    def excuteCommand(con, channel, user, message, isMod, isSub):
+	    client = MPDClient()               # create client object
+	    client.timeout = 10                # network timeout in seconds (floats allowed), default: None
+	    client.idletimeout = None          # timeout for fetching the result of the idle command is handled seperately, default: None
+	    client.connect("bluesnogbox.duckdns.org", 6600)
+	    send_message(con, channel, 'mpd version: ' + client.mpd_version)
+	    client.close()
+	    client.disconnect()
 
 
 ## Global Commands ##
