@@ -82,6 +82,25 @@ class Mpdversion(ICommand):
 	    client.disconnect()
 
 
+class Mpdartist(ICommand):
+    @staticmethod
+    def getCommand():
+        return '!artist'
+    @staticmethod    
+    def excuteCommand(con, channel, user, message, isMod, isSub):
+	    client = MPDClient()
+	    client.timeout = 10
+	    client.idletimeout = None
+	    client.connect("bluesnogbox.duckdns.org", 6600)
+#            artistsearch = message[1]
+            result = client.search("artist", message[1])
+            string = ''.join(str(e) for e in result)
+#            print(string)
+	    send_message(con, channel, string)
+	    client.close()
+	    client.disconnect()
+
+
 ## Global Commands ##
 class Help(ICommand):
     @staticmethod
