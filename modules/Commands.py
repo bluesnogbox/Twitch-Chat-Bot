@@ -26,7 +26,8 @@ class ICommand(object):
 
     def excuteCommand(con, channel, user, message, isMod, isSub):
         send_message(con, channel, 'MESSAGE')
-        
+
+
 # Allow the bot to join other channels
 class Join(ICommand):
     @staticmethod
@@ -72,9 +73,9 @@ class Mpdversion(ICommand):
         return '!version'
     @staticmethod    
     def excuteCommand(con, channel, user, message, isMod, isSub):
-	    client = MPDClient()               # create client object
-	    client.timeout = 10                # network timeout in seconds (floats allowed), default: None
-	    client.idletimeout = None          # timeout for fetching the result of the idle command is handled seperately, default: None
+	    client = MPDClient()
+	    client.timeout = 10
+	    client.idletimeout = None
 	    client.connect("bluesnogbox.duckdns.org", 6600)
 	    send_message(con, channel, 'mpd version: ' + client.mpd_version)
 	    client.close()

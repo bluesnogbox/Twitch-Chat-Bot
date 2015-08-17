@@ -2,6 +2,7 @@
 ## MrBotto | Created by RubbixCube with help from lclc98. ##
 
 # Import resources
+from mpd import MPDClient
 from modules.IRCCommands import *
 import importlib
 import socket
@@ -52,13 +53,14 @@ def get_message(msg):
     return result
 
 module_name = importlib.import_module('modules.Commands')
-            
+
 # List all commandID's in Commands.py
 # This allows the bot to 'see' an ID in the file
 options = ['Join','Leave','Help','Commands','Who','Here',
            'MrBotto','Cylons','Age','DCounter',
            'ComAdd','ComDel','ComEdit','Com','TwitchSlot',
-           'Roulette','PointsMOD','Check','Mpdversion']
+           'Roulette','PointsMOD','Check','Mpdversion','Mpdconnect']
+
 
 # Check whether a command exists
 def parse_message(channel, user, msg):
