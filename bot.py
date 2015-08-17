@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 ## MrBotto | Created by RubbixCube with help from lclc98. ##
 
 # Import resources
@@ -78,7 +78,7 @@ def parse_message(channel, user, msg):
         if (msg[0] in cmds):
             cmds = pickle.load(open('cmds.p', 'r+'))
             response = cmds[msg[0]]
-            print response
+            print(response)
             send_message(con, channel, response)
 
 # Connect to the host and join the appropriate channel(s)
