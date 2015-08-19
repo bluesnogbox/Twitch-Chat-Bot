@@ -1,14 +1,11 @@
-# MrBotto
+# sn0gger
 <b>Twitch IRC Python chat bot</b>
 
-A bot coded by <i>myself and lclc98</i>. We used an existing bot made by Liquid here and modified it: https://www.sevadus.tv/forums/index.php?/topic/774-simple-python-irc-bot/
+A bot forked from RubbixCube (see here: https://github.com/RubbixCube/Twitch-Chat-Bot). The purpose is to add functionality for searching tracks on a remote MPD server.
 
 The python version needed to run this is ver. 2.7.6 | For more information on installation, please visit the Wiki: https://github.com/RubbixCube/Twitch-Chat-Bot/wiki/Installation
 
-Information is held in the Wiki: https://github.com/RubbixCube/Twitch-Chat-Bot/wiki
+Information on the original code is held in the Wiki: https://github.com/RubbixCube/Twitch-Chat-Bot/wiki
 
 <b>RESOURCES:</b>  
 Go here to get your OAuth code: http://twitchapps.com/tmi/ 
-
-<b>CURRENT ISSUES:</b>
-- NONE
