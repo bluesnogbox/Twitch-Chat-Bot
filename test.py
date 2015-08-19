@@ -10,8 +10,8 @@ result = client.listfiles('/Cake')
 res_list = set()
 for i in result:
         if 'directory' in i:
-                    res_list.add(i['directory'])
-        for item in sorted(list(res_list)):
-            print(item)                            
+            res_list.add(i['directory'])
+for item in sorted(list(res_list)):
+    print(item)                            
 client.close
 client.disconnect
