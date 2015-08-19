@@ -105,7 +105,7 @@ class Searchartist(ICommand):
     def getCommand():
         return '!searchartist'
     @staticmethod
-    def executeCommand(con, channel, user, message, isMod, isSub):
+    def excuteCommand(con, channel, user, message, isMod, isSub):
         client = MPDClient()
         client.timeout = 10
         client.idletimeout = None
@@ -114,8 +114,8 @@ class Searchartist(ICommand):
         res_list = []
         for i in result:
             if 'directory' in i:
-                res_list.add(i['directory'])
-        for item in sorted(list(res_list)):
+                res_list.append(i['directory'])
+        for item in res_list:
             print(item)
         send_message(con, channel, res_list)
         client.close()

@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python
 ## MrBotto | Created by RubbixCube with help from lclc98. ##
 
 # Import resources
