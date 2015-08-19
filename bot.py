@@ -59,7 +59,7 @@ module_name = importlib.import_module('modules.Commands')
 options = ['Join','Leave','Help','Commands','Who','Here',
            'MrBotto','Cylons','Age','DCounter',
            'ComAdd','ComDel','ComEdit','Com','TwitchSlot',
-           'Roulette','PointsMOD','Check','Mpdversion','Mpdartist']
+           'Roulette','PointsMOD','Check','Mpdversion','Mpdartist','Searchartist']
 
 
 # Check whether a command exists

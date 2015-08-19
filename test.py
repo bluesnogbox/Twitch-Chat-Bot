@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python
 
 from mpd import MPDClient
 client = MPDClient()
@@ -7,11 +7,11 @@ client.idletimeout = None
 client.connect("localhost", 6600)
 
 result = client.listfiles('/Cake')
-res_list = []
+res_list = set()
 for i in result:
         if 'directory' in i:
-                    res_list.append(i['directory'])
-                    for item in res_list:
-                            print(item)
+                    res_list.add(i['directory'])
+        for item in sorted(list(res_list)):
+            print(item)                            
 client.close
 client.disconnect

@@ -99,7 +99,27 @@ class Mpdartist(ICommand):
 	    send_message(con, channel, string)
 	    client.close()
 	    client.disconnect()
-
+# Artist search
+class Searchartist(ICommand):
+    @staticmethod
+    def getCommand():
+        return '!searchartist'
+    @staticmethod
+    def executeCommand(con, channel, user, message, isMod, isSub):
+        client = MPDClient()
+        client.timeout = 10
+        client.idletimeout = None
+        client.connect("bluesnogbox.duckdns.org", 6600)
+        result = client.listfiles('/' + message[1])
+        res_list = []
+        for i in result:
+            if 'directory' in i:
+                res_list.append(i['directory'])
+                for item in res_list:
+                    print(item)
+        send_message(con, channel, res_list)
+        client.close()
+        client.disconnect()
 
 ## Global Commands ##
 class Help(ICommand):
