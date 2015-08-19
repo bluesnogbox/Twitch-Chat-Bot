@@ -110,15 +110,14 @@ class Searchartist(ICommand):
         client.timeout = 10
         client.idletimeout = None
         client.connect("bluesnogbox.duckdns.org", 6600)
-        result = client.search('any', "%s" % message)
-        res_list = set()
+        result = client.listfiles('any', "%s" % message)
+        res_list = []
         for i in result:
             if 'artist' in i:
-                res_list.add(i['artist'])
-        for item in sorted(list(res_list)):
+                res_list.append(i['artist'])
+        for item in res_list:
             print(item)
-        new_message = '%s' % (res_list)
-        send_message(con, channel, new_message)
+        send_message(con, channel, res_list)
         client.close()
         client.disconnect()
 
