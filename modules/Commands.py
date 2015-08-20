@@ -99,6 +99,7 @@ class Mpdartist(ICommand):
 	    send_message(con, channel, string)
 	    client.close()
 	    client.disconnect()
+
 # Artist search
 class Searchartist(ICommand):
     @staticmethod
@@ -111,16 +112,16 @@ class Searchartist(ICommand):
         client.idletimeout = None
         client.connect("bluesnogbox.duckdns.org", 6600)
         result = client.search('any', "%s" % message[1])
-        res_list = []
+        res_list = set()
         for i in result:
             if 'artist' in i:
-                res_list.append(i['artist'])
+                res_list.add(i['artist'])
         mess = ""
-        for item in res_list:
+        for item in sorted(list(res_list)):
             print(item)
-            mess += str(item)
+            mess += ": " + str(item)
 #        mess = str(res_list)
-        send_message(con, channel, mess)
+        send_message(con, channel, "results" + mess)
         client.close()
         client.disconnect()
 
